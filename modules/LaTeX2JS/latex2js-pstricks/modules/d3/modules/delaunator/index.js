@@ -1,4 +1,4 @@
-import { orient2d } from './/modules/robust-predicates/esm/orient2d.js';
+import { orient2d } from './modules/robust-predicates/esm/orient2d.js';
 
 const EPSILON = Math.pow(2, -52);
 const EDGE_STACK = new Uint32Array(512);
