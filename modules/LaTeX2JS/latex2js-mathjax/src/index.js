@@ -1,4 +1,4 @@
-import { load as loadScript} from '../node_modules/load-script/index.js';
+import { load as loadScript} from '../modules/load-script/index.js';
 //export const DEFAULT_SCRIPT = process.env.MATHJAX_CDN || 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js';
 export const DEFAULT_SCRIPT = 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/MathJax.js';
 
