@@ -1,4 +1,4 @@
-import Delaunator from "../..//modules/delaunator/index.js";
+import Delaunator from "../../modules/delaunator/index.js";
 
 import Path from "./path.js";
 import Polygon from "./polygon.js";
