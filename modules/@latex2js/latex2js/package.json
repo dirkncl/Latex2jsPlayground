@@ -1,0 +1,48 @@
+{
+  "name": "latex2js",
+  "version": "3.1.3",
+  "description": "LaTeX and PSTricks rendering & components for the Web",
+  "author": "Dan Lynch <pyramation@gmail.com>",
+  "homepage": "https://github.com/Mathapedia/LaTeX2JS",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "index.js",
+  "module": "esm/index.js",
+  "types": "index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mathapedia/LaTeX2JS"
+  },
+  "keywords": [
+    "latex",
+    "mathjax",
+    "latex2html",
+    "latex2js",
+    "math",
+    "mathematics",
+    "pstricks",
+    "graphics",
+    "diagrams",
+    "math diagrams"
+  ],
+  "scripts": {
+    "copy": "copyfiles -f ../../LICENSE README.md package.json latex2js.css latex2js.mathapedia.css dist",
+    "clean": "rimraf dist",
+    "build": "pnpm run clean && tsc && tsc -p tsconfig.esm.json && pnpm run copy && cp latex2js.css ../../bundle/latex2js.css",
+    "build:dev": "pnpm run clean && tsc --declarationMap && tsc -p tsconfig.esm.json && pnpm run copy",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:debug": "node --inspect node_modules/.bin/jest --runInBand"
+  },
+  "bugs": {
+    "url": "https://github.com/Mathapedia/LaTeX2JS/issues"
+  },
+  "dependencies": {
+    "@latex2js/pstricks": "workspace:^",
+    "@latex2js/settings": "workspace:^",
+    "@latex2js/utils": "workspace:^"
+  }
+}

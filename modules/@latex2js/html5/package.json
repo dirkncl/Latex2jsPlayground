@@ -1,0 +1,42 @@
+{
+  "name": "latex2html5",
+  "version": "3.1.3",
+  "description": "Author interactive math equations and diagrams online using LaTeX and PSTricks",
+  "author": "Dan Lynch <pyramation@gmail.com>",
+  "homepage": "https://github.com/Mathapedia/LaTeX2JS",
+  "license": "SEE LICENSE IN LICENSE",
+  "main": "index.js",
+  "module": "esm/index.js",
+  "types": "index.d.ts",
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mathapedia/LaTeX2JS"
+  },
+  "scripts": {
+    "copy": "copyfiles -f ../../LICENSE README.md package.json dist",
+    "clean": "rimraf dist",
+    "build": "pnpm run clean && tsc && tsc -p tsconfig.esm.json && pnpm run copy && pnpm run bundle",
+    "build:dev": "pnpm run clean && tsc --declarationMap && tsc -p tsconfig.esm.json && pnpm run copy && pnpm run bundle",
+    "bundle": "browserify dist/index.js --s LaTeX2HTML5 -o dist/latex2html5.bundle.js && cp dist/latex2html5.bundle.js ../../bundle/latex2html5.bundle.js",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:debug": "node --inspect node_modules/.bin/jest --runInBand"
+  },
+  "bugs": {
+    "url": "https://github.com/Mathapedia/LaTeX2JS/issues"
+  },
+  "dependencies": {
+    "@latex2js/macros": "workspace:^",
+    "@latex2js/pstricks": "workspace:^",
+    "@latex2js/utils": "workspace:^",
+    "latex2js": "workspace:^",
+    "mathjaxjs": "workspace:^"
+  },
+  "devDependencies": {
+    "browserify": "^17.0.0"
+  }
+}
